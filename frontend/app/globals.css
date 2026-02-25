@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d1117;
+  --foreground: #e6edf3;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.severity-p1 { @apply bg-red-900/30 border border-red-500 text-red-400; }
+.severity-p2 { @apply bg-orange-900/30 border border-orange-500 text-orange-400; }
+.severity-p3 { @apply bg-yellow-900/30 border border-yellow-500 text-yellow-400; }
