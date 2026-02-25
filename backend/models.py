@@ -4,9 +4,9 @@ from enum import Enum
 
 
 class Severity(str, Enum):
-    P1 = "P1"  # Critical — production down
-    P2 = "P2"  # High — major degradation
-    P3 = "P3"  # Medium — minor issue
+    P1 = "P1"
+    P2 = "P2"
+    P3 = "P3"
 
 
 class Category(str, Enum):
@@ -22,7 +22,7 @@ class TriageRequest(BaseModel):
     alert_text: str
     service_name: Optional[str] = None
     environment: Optional[str] = "production"
-    source: Optional[str] = "manual"  # manual | pagerduty | datadog | grafana
+    source: Optional[str] = "manual"
 
 
 class RunbookStep(BaseModel):
@@ -35,7 +35,7 @@ class RunbookStep(BaseModel):
 class TriageResult(BaseModel):
     severity: Severity
     category: Category
-    confidence: float  # 0.0 - 1.0
+    confidence: float
     summary: str
     root_cause_hypothesis: str
     runbook_steps: List[RunbookStep]
@@ -48,4 +48,6 @@ class TriageResult(BaseModel):
 
 class HealthResponse(BaseModel):
     status: str = "ok"
+    service: str = "AI Incident Triage Assistant"
     version: str = "0.1.0"
+    mode: str = "live"
